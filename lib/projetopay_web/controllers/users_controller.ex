@@ -3,21 +3,13 @@ defmodule ProjetopayWeb.UsersController do
 
   alias Projetopay.User
 
-  def create(conn, params) do
-    params
-    |> Projetopay.create_user()
-    |> handle_response(conn)
-  end
+  action_fallback ProjetopayWeb.FallbackController
 
-  defp handle_response({:ok, %User{}}, conn) do
+  def create(conn, params) do
+    with {:ok, %User{} = user} <- Projetopay.create_user(params) do
       conn
       |> put_status(:created)
-  #    |> json(%{message: "Welcome to Projeto pay API. Here is your number #{result}"})
-  end
-
-  defp handle_response({:error, reason}, conn) do
-    conn
-    |> put_status(:bad_request)
-    |> json(reason)
+      |> render("create.json", user: user)
+    end
   end
 end

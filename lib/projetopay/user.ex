@@ -3,6 +3,7 @@ defmodule Projetopay.User do
   import Ecto.Changeset
 
   alias Ecto.Changeset
+  alias Projetopay.Account
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
@@ -12,9 +13,10 @@ defmodule Projetopay.User do
     field :name, :string
     field :age, :integer
     field :email, :string
-    field :poassword, :string, virtual: true
-    field :passwaord_hash, :string
+    field :password, :string, virtual: true
+    field :password_hash, :string
     field :nickname, :string
+    has_one :account, Account
 
     timestamps()
   end

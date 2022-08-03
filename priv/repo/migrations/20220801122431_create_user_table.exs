@@ -6,7 +6,7 @@ defmodule Projetopay.Repo.Migrations.CreateUserTable do
         add :name, :string
         add :age, :integer
         add :email, :string
-        add :passwaord_hash, :string
+        add :password_hash, :string
         add :nickname, :string
 
 
