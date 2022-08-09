@@ -21,8 +21,6 @@ config :projetopay, Projetopay.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]
 
-
-
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
