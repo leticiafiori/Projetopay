@@ -21,7 +21,9 @@ config :projetopay, Projetopay.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]
 
-
+config :projetopay, :basic_auth,
+  username: "banana",
+  password: "nanica123"
 
 # Configures the mailer
 #
